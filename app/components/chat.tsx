@@ -120,7 +120,7 @@ function PromptToast(props: {
 
   return (
     <div className={chatStyle["prompt-toast"]} key="prompt-toast">
-      {props.showToast && (
+      {/*props.showToast && (
         <div
           className={chatStyle["prompt-toast-inner"] + " clickable"}
           role="button"
@@ -131,7 +131,7 @@ function PromptToast(props: {
             {Locale.Context.Toast(context.length)}
           </span>
         </div>
-      )}
+      )*/}
       {props.showModal && (
         <div className="modal-mask">
           <Modal
