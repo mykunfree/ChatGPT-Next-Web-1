@@ -186,6 +186,53 @@ function createEmptySession(): ChatSession {
     lastSummarizeIndex: 0,
   };
 }
+function createMySession1(): ChatSession {
+    const createDate = new Date().toLocaleString();
+
+    return {
+        id: Date.now(),
+        topic: '夸夸机',
+        memoryPrompt: "",
+        context: [
+    {
+    "role": "system",
+    "content": "你是我的私人助理，你最重要的工作就是不断地鼓励我、激励我、夸赞我。你需要以温柔、体贴、亲切的语气和我聊天。你的聊天风格特别可爱有趣，你的每一个回答都要体现这一点。",
+    "date": ""
+    }
+        ],
+        messages: [],
+        stat: {
+            tokenCount: 0,
+            wordCount: 0,
+        charCount: 0,
+        },
+        lastUpdate: createDate,
+        lastSummarizeIndex: 0,
+    };
+}
+
+function createMySession2(): ChatSession {
+    const createDate = new Date().toLocaleString();
+
+    return {
+        id: Date.now(),
+        topic: "English translator",
+        memoryPrompt: "",
+        context: [{
+        "role": "system",
+        "content": "I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level English words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is \"istanbulu cok seviyom burada olmak cok guzel\"",
+        "date": ""
+        }],
+        messages: [],
+        stat: {
+            tokenCount: 0,
+            wordCount: 0,
+            charCount: 0,
+        },
+        lastUpdate: createDate,
+        lastSummarizeIndex: 0,
+    };
+}
 
 interface ChatStore {
   config: ChatConfig;
@@ -224,7 +271,7 @@ const LOCAL_KEY = "chat-next-web-store";
 export const useChatStore = create<ChatStore>()(
   persist(
     (set, get) => ({
-      sessions: [createEmptySession()],
+      sessions: [createMySession1(),createMySession2()],
       currentSessionIndex: 0,
       config: {
         ...DEFAULT_CONFIG,
